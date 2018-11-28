@@ -29,7 +29,7 @@ let EmailService = {
 
         transport.sendMail(mailOptions, (err, result) => {
             if(err) {
-                console.error(err);
+                console.error('Error sending Email', err);
             } 
         })
     }

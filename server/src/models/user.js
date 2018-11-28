@@ -6,10 +6,13 @@ let userSchema = new mongoose.Schema({
     email: {
         type: String,
         trim: true,
-        lowercase: true
+        lowercase: true,
+        required: true,
+        index: true
     },
     password: {
-        type: String
+        type: String,
+        required: true
     },
     salt: {
         type: String

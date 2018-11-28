@@ -99,7 +99,7 @@ let UserService = {
                 await UserService.isEmailAddressAvailable(userDetails.email);
                 const registeredUser = await UserService.generateToken(userDetails);
                 const savedUser = await UserService.saveUser(registeredUser);
-                const verifyAccount = await EmailService.verifyAccount(savedUser);
+                EmailService.verifyAccount(savedUser);
                 return savedUser;
         } 
         catch(err) {
@@ -113,8 +113,7 @@ let UserService = {
     getUser: async (userDetails) => {
         try {
             await UserService.validateBody(userDetails);
-            const user = UserService.loginUser(userDetails);
-            return user;
+            return UserService.loginUser(userDetails);
         }
         catch(err) {
             throw(err);

@@ -39,11 +39,7 @@ let VerificationService = {
     },
 
     isVerified: (user) => {
-        if(user.isVerified === true) {
-            return true;
-        } else {
-            return false;
-        }
+        return user.isVerified;
     },
 
     authorizeUser: (email) => {
@@ -58,8 +54,7 @@ let VerificationService = {
     checkAuthenticated: async (spec) => {
         try {
             const registeredUser = await VerificationService.isRegistered(spec);
-            const isVerified = await VerificationService.isVerified(registeredUser);
-            return isVerified;
+            return VerificationService.isVerified(registeredUser);
         }
         catch(err) {
             throw(err)

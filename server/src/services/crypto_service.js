@@ -31,8 +31,7 @@ let CryptoService = {
     saltHashPassword: (userpassword) => {
         try {
             let salt = CryptoService.genRandomString(16);
-            let passwordData = CryptoService.sha512(userpassword, salt);
-            return passwordData;
+            return CryptoService.sha512(userpassword, salt); 
         }
         catch(err) {
             console.error('Error saltHashing the password', err);
@@ -41,8 +40,7 @@ let CryptoService = {
 
     saltHashExistingPassword: (userpassword, salt) => {
         try {
-            let passwordData = CryptoService.sha512(userpassword, salt);
-            return passwordData;
+            return CryptoService.sha512(userpassword, salt);
         }
         catch(err) {
             console.error('Error salting existing password', err);
